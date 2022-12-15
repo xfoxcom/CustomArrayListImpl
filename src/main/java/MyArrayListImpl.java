@@ -52,6 +52,10 @@ public class MyArrayListImpl<T> implements MyArrayList<T> {
     @Override
     public void insert(int index, T t) {
 
+        if (index >= size || index < 0) {
+            throw new IndexOutOfBoundsException("Index " + index + " is out of bound!");
+        }
+
         if (size + 1 == list.length) increaseCapacity();
 
         for (int i = size - 1; i >= index; i--)

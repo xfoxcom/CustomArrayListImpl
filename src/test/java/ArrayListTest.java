@@ -1,8 +1,35 @@
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 public class ArrayListTest {
+
+    @Test
+    public void index_out_of_bound_test() {
+
+        MyArrayListImpl<Integer> integers = new MyArrayListImpl<>();
+
+        assertThrows(IndexOutOfBoundsException.class, () -> {
+            integers.set(100, 5);
+        });
+
+    }
+
+    @Test
+    public void add100_elements_test() {
+
+        MyArrayListImpl<Integer> integers = new MyArrayListImpl<>();
+
+        for (int i = 0; i < 100; i++) {
+
+            integers.add(i);
+
+        }
+
+        assertEquals(100, integers.size());
+
+    }
 
     @Test
     public void add_and_get_element_test() {
